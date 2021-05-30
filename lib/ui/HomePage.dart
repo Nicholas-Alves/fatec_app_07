@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             "https://developers.giphy.com/static/img/dev-logo-lg.7404c00322a8.gif"),
         centerTitle: true,
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.green[400],
       body: Column(
         children: [
           Padding(
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 labelStyle: TextStyle(color: Colors.black),
                 border: OutlineInputBorder(),
               ),
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(color: Colors.black, fontSize: 20),
               textAlign: TextAlign.center,
               onSubmitted: (text) {
                 setState(() {
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.center,
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation(
-                            Colors.white,
+                            Colors.black,
                           ),
                           strokeWidth: 5,
                         ),
@@ -116,10 +116,12 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (context, index) {
         if (_pesquisa == null || index < snapshot.data["data"].length)
           return GestureDetector(
-            child: Image.network(
-              snapshot.data["data"][index]["images"]["fixed_height"]["url"],
-              height: 300,
-              fit: BoxFit.cover,
+            child: Container(
+              child: Image.network(
+                snapshot.data["data"][index]["images"]["fixed_height"]["url"],
+                height: 300,
+                fit: BoxFit.cover,
+              ),
             ),
             onTap: () {
               Navigator.push(

@@ -21,7 +21,7 @@ class GifPage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.green[400],
       body: Center(
         child: Image.network(_gifData["images"]["fixed_height"]["url"]),
       ),
